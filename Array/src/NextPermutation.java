@@ -21,7 +21,7 @@ public class NextPermutation {
                 }
             }
 
-            //if breakpoint does not exits
+            //if breakpoint does not exist
             if (ind==-1){
                 for (int i=0, j=n-1; i<j; i++,j--) {
                     int temp = arr[i];

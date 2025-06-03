@@ -17,8 +17,6 @@ public class SetMatrix {
             int col0 = 1;
             for (int i = 0; i < n; i++) {
                 for (int j = 0; j < m; j++) {
-
-
                     if (matrix[i][j] == 0){
                         matrix[i][0] = 0;
                         if (j!=0){
@@ -62,7 +60,6 @@ public class SetMatrix {
                 }
                 System.out.print("]");
                 if (i < n - 1) System.out.print(", ");
-
             }
             System.out.println("]");
         }

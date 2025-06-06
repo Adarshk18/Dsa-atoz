@@ -9,14 +9,11 @@ public class ThreeSum {
             int n = in.nextInt();
             int[] arr = new int[n];
 
-
             for (int i = 0; i < n; i++) {
                 arr[i] = in.nextInt();
             }
 
-
             Arrays.sort(arr);
-
             List<List<Integer>> ans = new ArrayList<>();
 
             for (int i = 0; i < n - 2; i++) {

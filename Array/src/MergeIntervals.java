@@ -12,8 +12,6 @@ public class MergeIntervals {
                 arr[i][0] = in.nextInt();
                 arr[i][1] = in.nextInt();
             }
-
-
             Arrays.sort(arr, new Comparator<int[]>() {
                 public int compare(int[] a, int[] b) {
                     return a[0] - b[0];

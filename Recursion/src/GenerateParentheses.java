@@ -19,7 +19,7 @@ public class GenerateParentheses {
             gen(result,current+'(',open+1,close,max);
         }
 
-        if (close<open){
+        if (close<open)
             gen(result,current+')',open, close+1,max);
         }
     }

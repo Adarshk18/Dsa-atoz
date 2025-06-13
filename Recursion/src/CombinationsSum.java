@@ -39,12 +39,16 @@ public class CombinationsSum {
 
             CombinationsSum ob = new CombinationsSum();
             List<List<Integer>> ls = ob.combinations(arr,target);
+            System.out.print("[");
             for (int i = 0; i < ls.size(); i++) {
+
                 for (int j = 0; j < ls.get(i).size(); j++) {
-                    System.out.print(ls.get(i).get(j)+ " ");
+
+                    System.out.print(ls.get(i).get(j)+ ",");
                 }
-                System.out.println();
+
             }
+            System.out.print("]");
         }
     }
 }

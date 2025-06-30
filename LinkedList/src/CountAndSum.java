@@ -65,6 +65,5 @@ public class CountAndSum {
 
         list.display();
         countSum(list.head);
-        sc.close();
     }
 }

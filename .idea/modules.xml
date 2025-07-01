@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/Array/Array.iml" filepath="$PROJECT_DIR$/Array/Array.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DSA_COMPLETE/Array/Array2.iml" filepath="$PROJECT_DIR$/DSA_COMPLETE/Array/Array2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/DSA_SCARATCH.iml" filepath="$PROJECT_DIR$/.idea/DSA_SCARATCH.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DSA_COMPLETE/LinkedList/LinkedList.iml" filepath="$PROJECT_DIR$/DSA_COMPLETE/LinkedList/LinkedList.iml" />
+      <module fileurl="file://$PROJECT_DIR$/LinkedList/LinkedList2.iml" filepath="$PROJECT_DIR$/LinkedList/LinkedList2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Patterns/Patterns.iml" filepath="$PROJECT_DIR$/Patterns/Patterns.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DSA_COMPLETE/Patterns/Patterns2.iml" filepath="$PROJECT_DIR$/DSA_COMPLETE/Patterns/Patterns2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DSA_COMPLETE/Recursion/Recursion.iml" filepath="$PROJECT_DIR$/DSA_COMPLETE/Recursion/Recursion.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Recursion/Recursion2.iml" filepath="$PROJECT_DIR$/Recursion/Recursion2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Strings/Strings.iml" filepath="$PROJECT_DIR$/Strings/Strings.iml" />
+      <module fileurl="file://$PROJECT_DIR$/DSA_COMPLETE/Strings/Strings2.iml" filepath="$PROJECT_DIR$/DSA_COMPLETE/Strings/Strings2.iml" />
+    </modules>
+  </component>
+</project>

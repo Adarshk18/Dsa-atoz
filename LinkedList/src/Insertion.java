@@ -15,7 +15,7 @@ public class Insertion {
         }
     }
 
-    Node head;
+    Node head; Node s;
 
     // Add a node to the end
     public void add(int data) {

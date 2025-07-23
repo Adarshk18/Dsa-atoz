@@ -2,12 +2,12 @@ import java.util.*;
 
 //using array
 
-public class Implementation {
+public class StackUsingArray {
    private int maxSize;
    private int[] stackArray;
    private int top;
 
-   Implementation(int size){
+   StackUsingArray(int size){
        maxSize = size;
        stackArray = new int[maxSize];
        top = -1;
@@ -45,7 +45,7 @@ public class Implementation {
         Scanner in = new Scanner(System.in);
         int n = in.nextInt();
 
-        Implementation st = new Implementation(n);
+        StackUsingArray st = new StackUsingArray(n);
         while (true){
             int choice = in.nextInt();
 

@@ -32,7 +32,7 @@ public class StackUsingLL {
                 System.out.println("Stack underflow");
                 return;
             }
-            System.out.println(top.data);
+            System.out.println(top.data + "popped from the stack");
             top = top.next;
         }
 

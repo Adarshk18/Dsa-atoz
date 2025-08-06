@@ -44,6 +44,28 @@ public class IterativeProrder {
         }
         return preOrder;
     }
+
+    public static List<Integer> inOrderTraversal(Node root) {
+        List<Integer> inOrder = new ArrayList<Integer>();
+        Stack<Node> st = new Stack<Node>();
+        Node node = root;
+
+        while (true){
+           if (node!=null){
+               st.push(node);
+               node = node.left;
+           }else{
+               while (st.isEmpty()){
+                   break;
+               }
+               node = st.pop();
+               inOrder.add(node.data);
+               node = node.right;
+           }
+           return inOrder;
+        }
+
+    }
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int t = in.nextInt();
@@ -52,6 +74,9 @@ public class IterativeProrder {
 
             System.out.println("\nPreorder Traversal");
             System.out.print(preorderTraversal(root));
+
+            System.out.println("\nInorder Traversal");
+            System.out.print(inOrderTraversal(root));
 
             System.out.println();
         }

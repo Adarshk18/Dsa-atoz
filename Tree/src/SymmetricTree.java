@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class RightView {
+public class SymmetricTree {
     static class Node {
         int data;
         Node left, right;
@@ -40,33 +40,20 @@ public class RightView {
         return root;
     }
 
-    public static List<Integer> rightSideView(Node root) {
-        List<Integer> res = new ArrayList<>();
-        if (root == null) return res;
-
-        Queue<Node> q = new LinkedList<Node>();
-        q.add(root);
-        while (!q.isEmpty()) {
-            int n = q.size();
-            Node lastNode = null;
-            for (int i = 0; i < n; i++) {
-                Node node = q.poll();
-                lastNode = node;
-
-                if (node.left != null) {
-                    q.add(node.left);
-                }
-                if (node.right != null) {
-                    q.add(node.right);
-                }
-
-            }
-            if (lastNode != null) res.add(lastNode.data);
-
+    public static boolean isSymmetricUtil(Node root1, Node root2) {
+        if (root1 == null || root2 == null) {
+            return root1 == root2;
         }
-        return res;
 
+        return (root1.data == root2.data) && isSymmetricUtil(root1.left, root2.right) && isSymmetricUtil(root1.right, root2.left);
     }
+
+    public static boolean isSymmetric(Node root) {
+        if (root == null) return true;
+
+        return isSymmetricUtil(root.left, root.right);
+    }
+
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -79,12 +66,12 @@ public class RightView {
             for (int i = 0; i < n; i++) {
                 arr[i] = in.nextInt();
             }
+
             Node root = buildTreeFromArray(arr);
-            List<Integer> res = rightSideView(root);
-            for(int val: res){
-                System.out.print(val + " ");
-            }
-            System.out.println();
+            boolean res = isSymmetric(root);
+
+            System.out.println(res ? "true" : "false");
         }
     }
 }
+

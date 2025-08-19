@@ -1,14 +1,26 @@
 import java.util.*;
 
-public class LCA {
+
+
+public class maxWidth {
     static class Node {
         int data;
-        Node left, right;
+      Node left, right;
 
         Node(int data) {
             this.data = data;
             this.left = null;
             this.right = null;
+        }
+    }
+
+    class Pair{
+        Node node;
+        int index;
+
+        Pair(Node _node, int _index){
+            node = _node;
+            index = _index;
         }
     }
 
@@ -39,27 +51,45 @@ public class LCA {
         }
         return root;
     }
+    public int widthOfBinaryTree(Node root) {
+        if (root==null) return 0;
 
-    public static Node lowestCommonAncestor(Node root, Node p, Node q) {
-        if (root == null || root == p || root == q) {
-            return root;
+        int ans = 0;
+        Queue<Pair> q = new LinkedList<>();
+        q.add(new Pair(root,0));
+
+        while (!q.isEmpty()){
+            int n = q.size();
+            int mmin = q.peek().index;
+
+            int first=0,last=0;
+
+            for (int i = 0; i < n; i++) {
+                Pair p = q.poll();
+                int curr_id = p.index-mmin;
+                Node node = p.node;
+
+
+                if (i==0){
+                    first = curr_id;
+                }
+
+                if (i==n-1){
+                    last = curr_id;
+                }
+
+                if (node.left!=null){
+                    q.add(new Pair(node.left,curr_id*2+1));
+                }
+
+                if (node.right!=null){
+                    q.add(new Pair(node.right,curr_id*2+2));
+                }
+            }
+            ans = Math.max(ans,last-first+1);
         }
-
-        Node left = lowestCommonAncestor(root.left, p, q);
-        Node right = lowestCommonAncestor(root.right, p, q);
-
-        if (left != null && right != null) return root;
-        return (left != null) ? left : right;
+        return ans;
     }
-
-    public static Node findNode(Node root, int val) {
-        if (root == null) return null;
-        if (root.data == val) return root;
-        Node left = findNode(root.left, val);
-        if (left != null) return left;
-        return findNode(root.right, val);
-    }
-
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int t = in.nextInt();
@@ -70,20 +100,11 @@ public class LCA {
             for (int i = 0; i < n; i++) {
                 arr[i] = in.nextInt();
             }
-            int p = in.nextInt();
-            int q = in.nextInt();
-
             Node root = buildTreeFromArray(arr);
-            Node pNode = findNode(root, p);
-            Node qNode = findNode(root, q);
 
-            Node lca = lowestCommonAncestor(root, pNode, qNode);
+            maxWidth mw = new maxWidth();
+            System.out.println(mw.widthOfBinaryTree(root));
 
-            if (lca != null) {
-                System.out.println(lca.data);
-            } else {
-                System.out.println("-1"); 
-            }
         }
     }
 }

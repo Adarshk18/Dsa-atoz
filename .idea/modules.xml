@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/Array/Array.iml" filepath="$PROJECT_DIR$/Array/Array.iml" />
       <module fileurl="file://$PROJECT_DIR$/DSA_COMPLETE/Array/Array2.iml" filepath="$PROJECT_DIR$/DSA_COMPLETE/Array/Array2.iml" />
+      <module fileurl="file://$PROJECT_DIR$/BST/BST.iml" filepath="$PROJECT_DIR$/BST/BST.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/DSA_SCARATCH.iml" filepath="$PROJECT_DIR$/.idea/DSA_SCARATCH.iml" />
       <module fileurl="file://$PROJECT_DIR$/DSA_COMPLETE/LinkedList/LinkedList.iml" filepath="$PROJECT_DIR$/DSA_COMPLETE/LinkedList/LinkedList.iml" />
       <module fileurl="file://$PROJECT_DIR$/LinkedList/LinkedList2.iml" filepath="$PROJECT_DIR$/LinkedList/LinkedList2.iml" />

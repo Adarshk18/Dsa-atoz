@@ -1,16 +1,36 @@
 import java.util.*;
 
-public class FlattenTree {
-    static class Node {
-        int data;
-        Node left, right;
+class Node {
+    int data;
+    Node left, right;
 
-        Node(int data) {
-            this.data = data;
-            this.left = null;
-            this.right = null;
+    Node(int data) {
+        this.data = data;
+        this.left = null;
+        this.right = null;
+    }
+}
+
+
+public class FlattenTree {
+    public static void flatten(Node root) {
+        Node curr = root;
+        while (curr != null) {
+            if (curr.left != null) {
+                Node prev = curr.left;
+                while (prev.right != null) {
+                    prev = prev.right;
+                }
+
+                prev.right = curr.right;
+                curr.right = curr.left;
+                curr.left = null;
+            }
+            curr = curr.right;
         }
     }
+}
+class Main{
     public static Node buildTreeFromArray(int[] arr) {
         if (arr.length == 0 || arr[0] == -1) return null;
 
@@ -38,23 +58,6 @@ public class FlattenTree {
         }
         return root;
     }
-
-    public static void flatten(Node root){
-        Node curr = root;
-        while (curr!=null){
-            if (curr.left!=null){
-                Node prev = curr.left;
-                while (prev.right!=null){
-                    prev = prev.right;
-                }
-
-                prev.right = curr.right;
-                curr.right = curr.left;
-                curr.left =null;
-            }
-            curr = curr.right;
-        }
-    }
     public static void printPreorder(Node root){
         if (root==null) return;
 
@@ -73,7 +76,7 @@ public class FlattenTree {
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int t = in.nextInt();
-
+        FlattenTree ft = new FlattenTree();
 
         while (t-->0){
             int n = in.nextInt();
@@ -87,7 +90,7 @@ public class FlattenTree {
             printPreorder(root);
             System.out.println();
 
-            flatten(root);
+            ft.flatten(root);
 
             printFlatten(root);
             System.out.println();

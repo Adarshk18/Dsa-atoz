@@ -109,8 +109,6 @@ public class VerticalTraversal {
             Node root = buildTreeFromArray(arr);
             List<List<Integer>> ans = verticalTraversal(root);
             System.out.println(ans);
-
-
         }
     }
 }

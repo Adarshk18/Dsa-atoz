@@ -1,6 +1,25 @@
 import java.util.*;
 
 public class DFS {
+
+    public static void dfs(int node, boolean[] vis, ArrayList<ArrayList<Integer>> adj, ArrayList<Integer> ls){
+        vis[node] = true;
+        ls.add(node);
+
+        for(Integer it: adj.get(node)){
+            if (!vis[it]){
+                dfs(it,vis,adj,ls);
+            }
+        }
+    }
+
+    public static ArrayList<Integer> dfsOfGraph(int V, ArrayList<ArrayList<Integer>> adj){
+        boolean[] vis = new boolean[V];
+        vis[0] = true;
+        ArrayList<Integer> ls = new ArrayList<>();
+        dfs(0,vis,adj,ls);
+        return ls;
+    }
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
         int t = in.nextInt();
@@ -22,7 +41,13 @@ public class DFS {
                 adj.get(v).add(u);
             }
 
+            int V = in.nextInt();
 
+            ArrayList<Integer> res = dfsOfGraph(V,adj);
+            for (int x: res){
+                System.out.print(x + " ");
+            }
+            System.out.println();
         }
     }
 }

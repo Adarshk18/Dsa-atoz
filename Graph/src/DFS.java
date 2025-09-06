@@ -15,7 +15,6 @@ public class DFS {
 
     public static ArrayList<Integer> dfsOfGraph(int V, ArrayList<ArrayList<Integer>> adj){
         boolean[] vis = new boolean[V];
-        vis[0] = true;
         ArrayList<Integer> ls = new ArrayList<>();
         dfs(0,vis,adj,ls);
         return ls;
@@ -41,9 +40,9 @@ public class DFS {
                 adj.get(v).add(u);
             }
 
-            int V = in.nextInt();
 
-            ArrayList<Integer> res = dfsOfGraph(V,adj);
+
+            ArrayList<Integer> res = dfsOfGraph(n,adj);
             for (int x: res){
                 System.out.print(x + " ");
             }

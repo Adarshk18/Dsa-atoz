@@ -3,20 +3,6 @@ import java.util.*;
 
 public class wordLadder2 {
 
-    static class comp implements Comparator <List<String>>{
-        public int compare(List<String> a , List<String> b){
-            String x = "";
-            String y = "";
-            for (int i = 0; i < a.size(); i++) {
-                x += a.get(i);
-            }
-            for (int i = 0; i < b.size(); i++) {
-                y += b.get(i);
-            }
-            return x.compareTo(y);
-        }
-    }
-
     public static List<List<String>> findLadders(String beginWord, String endWord, List<String> wordList) {
         Set<String> st = new HashSet<>(wordList);
         Queue<ArrayList<String>> q = new LinkedList<>();
@@ -90,10 +76,10 @@ public class wordLadder2 {
             }
 
             List<List<String>> ans = findLadders(beginWord,endWord,wordList);
-            if (ans.size()==0){
+            if (ans.isEmpty()){
                 System.out.println(-1);
             }else{
-                Collections.sort(ans,new comp());
+                ans.sort((a,b)-> String.join("",a).compareTo(String.join("",b)));
                 for (int i = 0; i < ans.size(); i++) {
                     for (int j = 0; j < ans.get(i).size(); j++) {
                         System.out.print(ans.get(i).get(j) + " ");

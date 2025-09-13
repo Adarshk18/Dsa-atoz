@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class CourseScheduleII {
+public class DAGCycleDetectDFS {
 
     private static boolean dfs(int node, ArrayList<ArrayList<Integer>> adj, int[] vis, int[] pathVis) {
         vis[node] = 1;

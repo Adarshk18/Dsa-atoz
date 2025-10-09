@@ -5,8 +5,7 @@ public class ShortestRoutesII {
 
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
-        int t = in.nextInt();
-        while (t-->0){
+
             int n = in.nextInt();
             int m = in.nextInt();
             int q = in.nextInt();
@@ -43,6 +42,6 @@ public class ShortestRoutesII {
                 sb.append(ans ==INF ? -1: ans).append("\n");
             }
             System.out.print(sb);
-        }
+
     }
 }

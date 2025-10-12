@@ -33,8 +33,6 @@ public class Meetings {
 
         for (int i = 1; i < n; i++) {
             if (meet.get(i).start >= freeTime){
-
-
                 ans.add(meet.get(i).pos);
                 freeTime = meet.get(i).end;
                 cnt++;

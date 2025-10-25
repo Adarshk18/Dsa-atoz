@@ -9,7 +9,7 @@ public class UniquePath2 {
         for (int i = 0; i < n; i++) {
             int[] temp = new int[m];
             for (int j = 0; j < m; j++) {
-                if (obstacleGrid[i][j] == -1) {
+                if (obstacleGrid[i][j] == 1) {
                     temp[j] = 0;
                     continue;
                 }

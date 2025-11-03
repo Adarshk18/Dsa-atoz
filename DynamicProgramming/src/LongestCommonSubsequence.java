@@ -10,7 +10,7 @@ public class LongestCommonSubsequence {
         int[] curr = new int[m+1];
 
         for (int j = 0; j <= m; j++) {
-            prev[j] += 0;
+            prev[j] = 0;
         }
 
 

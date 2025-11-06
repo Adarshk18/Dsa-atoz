@@ -63,7 +63,5 @@ public class ShortestCommonSubsequence {
             String result = shortestCommonSupersequence(text1, text2);
             System.out.println(result);
         }
-
-
     }
 }

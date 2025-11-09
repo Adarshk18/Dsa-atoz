@@ -2,42 +2,56 @@ import java.util.*;
 
 public class WildCardMatching {
 
-    public static boolean function(int i, int j, String s, String p) {
+    public static boolean isAllStars(String s, int i){
+        for (int j = 0; j <= i; j++) {
+            if (s.charAt(j)!='*'){
+                return false;
+            }
+        }
+        return true;
+    }
+
+    public static int function(int i, int j, String s, String p, int[][] dp) {
 
         //Base case
 
         //if both gets exhausted
         if (i < 0 && j < 0) {
-            return true;
+            return 1;
         }
 
         //if i gets exhausted
         if (i < 0 && j >= 0) {
-            return false;
+            return 0;
         }
 
         //if j gets exhausted
         if (j < 0 && i >= 0) {
-            for (int k = 0; k <= i; k++) {
-                if (s.charAt(k) != '*') return false;
-
-            }
-            return true;
+            return isAllStars(s,i) ? 1:0;
         }
+
+
+        if (dp[i][j]!=-1) return dp[i][j];
 
         if (s.charAt(i) == p.charAt(j) && s.charAt(i) == '?') {
-            return function(i - 1, j - 1, s, p);
+            return dp[i][j] = function(i-1,j-1,s,p,dp);
+        }
+        else{
+            if (s.charAt(i) == '*') {
+                return dp[i][j] = (function(i - 1, j, s, p,dp) ==1 || function(i, j - 1, s, p,dp) == 1) ? 1:0;
+            }else{
+                return 0
+            }
+
         }
 
-        if (s.charAt(i) == '*') {
-            return function(i - 1, j, s, p) || function(i, j - 1, s, p);
-        }
-        return false;
     }
 
-    public static boolean isMatch(String s, String p) {
+    public static int isMatch(String s, String p) {
         int n = s.length(); int m = p.length();
-        return function(n-1,m-1,s,p);
+        int[][] dp = new int[n][m];
+        for(int[] row: dp) Arrays.fill(dp,-1);
+        return function(n-1,m-1,s,p,dp);
     }
 
     public static void main(String[] args) {
@@ -48,8 +62,8 @@ public class WildCardMatching {
             String s = in.next();
             String u = in.next();
 
-           boolean res = isMatch(s,u);
-           if (res){
+
+           if (isMatch(s,u)==1){
                System.out.println("true");
            }else{
                System.out.println("false");

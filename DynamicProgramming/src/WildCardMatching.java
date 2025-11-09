@@ -40,7 +40,7 @@ public class WildCardMatching {
             if (s.charAt(i) == '*') {
                 return dp[i][j] = (function(i - 1, j, s, p,dp) ==1 || function(i, j - 1, s, p,dp) == 1) ? 1:0;
             }else{
-                return 0
+                return 0;
             }
 
         }

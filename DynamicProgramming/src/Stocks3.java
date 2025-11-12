@@ -1,26 +1,25 @@
 import java.util.*;
 
-public class Stocks2 {
+public class Stocks3 {
+
+
     public static int maxProfit(int[] prices) {
         int n = prices.length;
-        int[] dp = new int[2];
-        int[] curr = new int[2];
+        int[][][] dp = new int[n+1][2][3];
 
-        dp[0] = dp[1] = 0;
-        int profit =0;
-        for (int ind = n-1; ind >= 0; ind--) {
+        for (int ind = n - 1; ind >= 0; ind--) {
             for (int buy = 0; buy <= 1; buy++) {
+                for (int cap = 1; cap <= 2; cap++) {
+                    if (buy == 1) {
+                         dp[ind][buy][cap] = Math.max(-prices[ind] + dp[ind+1][0][cap], dp[ind+1][1][cap]);
+                    } else {
+                         dp[ind][buy][cap] = Math.max(prices[ind] + dp[ind+1][1][cap-1], dp[ind+1][0][cap]);
+                    }
 
-                if (buy==1){
-                    profit = Math.max(-prices[ind] + dp[0], dp[1]);
-                }else{
-                    profit = Math.max(prices[ind] + dp[1],  dp[0]);
                 }
-               curr[buy] = profit;
             }
-            dp = curr;
         }
-        return dp[n];
+        return dp[0][1][2];
     }
 
     public static void main(String[] args) {

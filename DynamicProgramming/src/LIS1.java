@@ -16,7 +16,7 @@ public class LIS1 {
             }
             next = curr.clone();
         }
-        return next[-1+1];
+        return next[0];
     }
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
@@ -27,7 +27,6 @@ public class LIS1 {
             for (int i = 0; i < n; i++) {
                 nums[i] = in.nextInt();
             }
-
             int max = lengthOfLIS(nums);
             System.out.println(max);
         }

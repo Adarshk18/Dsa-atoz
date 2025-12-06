@@ -5,24 +5,25 @@ public class BurstBalloons {
     public static int maxCoins(int[] nums) {
         int n = nums.length;
         List<Integer> arr = new ArrayList<>();
-        for(int c: nums) arr.add(c);
+        for (int c : nums) arr.add(c);
 
         arr.add(1);
-        arr.add(0,1);
-        int[][] dp = new int[n+2][n+2];
+        arr.add(0, 1);
+        int[][] dp = new int[n + 2][n + 2];
 
         for (int i = n; i >= 1; i--) {
             for (int j = 1; j <= n; j++) {
                 int max = Integer.MIN_VALUE;
                 for (int ind = i; ind <= j; ind++) {
-                    int cost = nums[ind-1]*nums[ind]*nums[ind+1] + dp[i][ind-1] + dp[ind+1][j];
-                    max = Math.max(max,cost);
+                    int cost = nums[ind - 1] * nums[ind] * nums[ind + 1] + dp[i][ind - 1] + dp[ind + 1][j];
+                    max = Math.max(max, cost);
                 }
-                dp[i][j] =  max;
+                dp[i][j] = max;
             }
         }
         return dp[1][n];
     }
+
     public static void main(String[] args) {
         Scanner in = new Scanner(System.in);
 
